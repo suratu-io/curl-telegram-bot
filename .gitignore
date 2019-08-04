@@ -10,3 +10,10 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# IDEs and Code editors
+.idea
+.vscode
+
+# Required packages
+vendor
