@@ -8,6 +8,8 @@ import (
 )
 
 var (
+	log = commands.Factory.NewLogger("request")
+
 	CommandGet 		= NewRequestCommand(http.MethodGet)
 	CommandHead 	= NewRequestCommand(http.MethodHead)
 	CommandPost 	= NewRequestCommand(http.MethodPost)
