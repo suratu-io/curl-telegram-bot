@@ -9,14 +9,12 @@ import (
 const (
     BotApiTokenEnv    = "BOT_API_TOKEN"
     UpdateTimeoutEnv  = "UPDATE_TIMEOUT"
-    ProductionModeEnv = "PRODUCTION_MODE"
 )
 
 var (
     log = logger.Factory.NewLogger("config")
 
     BotApiToken    = os.Getenv(BotApiTokenEnv)
-    ProductionMode = os.Getenv(ProductionModeEnv) == "true"
     UpdateTimeout  = 60
 )
 
