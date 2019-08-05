@@ -1,78 +1,44 @@
 package main
 
 import (
-	"github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/olehan/kek"
-	"os"
+    "github.com/suratu-io/curl-telegram-bot/app/bot"
+    "github.com/suratu-io/curl-telegram-bot/app/commands"
+    "github.com/suratu-io/curl-telegram-bot/app/commands/help"
+    "github.com/suratu-io/curl-telegram-bot/app/commands/request"
+    "github.com/suratu-io/curl-telegram-bot/app/config"
+    "github.com/suratu-io/curl-telegram-bot/app/logger"
 )
 
 var (
-	log = kek.NewLogger("main")
-)
-
-const (
-	help   = "/help"
-	get = "/get"
-	post = "/post"
-	put = "/put"
-	delete = "/delete"
-	update = "/update"
-	head = "/head"
-	trace = "/trace"
-	patch = "/patch"
-	connect = "/connect"
+    log = logger.Factory.NewLogger("main")
+    // Mapping commands into a map to make command selection easier.
+    cmds = commands.NewCallbackMap(
+        help.Command,
+        request.CommandGet,
+        request.CommandHead,
+        request.CommandPost,
+        request.CommandPut,
+        request.CommandPatch,
+        request.CommandDelete,
+        request.CommandConnect,
+        request.CommandOptions,
+        request.CommandTrace,
+    )
 )
 
 func main() {
-	bot, err := tgbotapi.NewBotAPI(os.Getenv("tgbot_token"))
-	if err != nil {
-		log.Panic.Println("error trying to connect to the the telegram bot api")
-		panic(err)
-	}
-
-	bot.Debug = true
-
-	u := tgbotapi.NewUpdate(0)
-	u.Timeout = 60
-
-	updates, err := bot.GetUpdatesChan(u)
-
-	for update := range updates {
-		if update.Message == nil { // ignore any non-Message Updates
-			continue
-		}
-
-		log.Succ.PrintT("{} {}", update.Message.From.UserName, update.Message.Text)
-
-		msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
-
-		switch msg.Text {
-		case help:
-			sendHelpMessage(msg, bot)
-		case newReq:
-			buildNewRequest(msg, bot)
-		}
-	}
-}
-
-func sendHelpMessage(msg tgbotapi.MessageConfig, bot *tgbotapi.BotAPI) {
-	text := "This bot is designed to make possible to send HTTP request from telegram. Available commands: \n" +
-		"1. /help\n" +
-		"2. /new - start to build new request\n" +
-		"3. /curl - make request using standard curl syntax\n"
-	response := tgbotapi.NewMessage(msg.ChatID, text)
-
-    if _, err := bot.Send(response); err != nil {
-        log.Error.Println("error during help send")
+    // Creating and setting up a new bot api client.
+    b, err := bot.NewBot(config.BotApiToken, config.ProductionMode, cmds)
+    if err != nil {
+        log.Panic.Println("error trying to initialize a new bot")
+        panic(err)
     }
-}
 
-func buildNewRequest(msg tgbotapi.MessageConfig, bot *tgbotapi.BotAPI) {
-	text := "Enter request url:"
-	textResponse := tgbotapi.NewMessage(msg.ChatID, text)
-
-
-    if _, err := bot.Send(textResponse); err != nil {
-        log.Error.PrintT("error during new request forming: {}", err)
+    // Run is going to loop a continues chan that will block
+    // the further execution of main func.
+    err = b.Run(config.UpdateTimeout)
+    if err != nil {
+        log.Panic.Println("error trying to run bot")
+        panic(err)
     }
 }
