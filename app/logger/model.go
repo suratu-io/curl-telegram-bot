@@ -1,4 +1,4 @@
-package factory
+package logger
 
 import (
     "github.com/olehan/kek"
@@ -9,3 +9,7 @@ import (
 var (
     Factory = kek.NewFactory(os.Stdout, sugared.Formatter)
 )
+
+func init() {
+    Factory.SetRandomNameColor().SetWithNS(false)
+}
