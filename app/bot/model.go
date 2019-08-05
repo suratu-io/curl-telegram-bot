@@ -18,13 +18,11 @@ var (
     log = logger.Factory.NewLogger("bot")
 )
 
-func NewBot(token string, debug bool, commands commands.CallbackMap) (*Bot, error) {
+func NewBot(token string, commands commands.CallbackMap) (*Bot, error) {
     api, err := tbot.NewBotAPI(token)
     if err != nil {
         return nil, err
     }
-
-    api.Debug = debug
 
     return &Bot{api: api, commands: commands}, nil
 }

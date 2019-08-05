@@ -28,17 +28,15 @@ var (
 
 func main() {
     // Creating and setting up a new bot api client.
-    b, err := bot.NewBot(config.BotApiToken, config.ProductionMode, cmds)
+    b, err := bot.NewBot(config.BotApiToken, cmds)
     if err != nil {
-        log.Panic.Println("error trying to initialize a new bot")
-        panic(err)
+        log.Panic.Println("error trying to initialize a new bot:", err)
     }
 
     // Run is going to loop a continues chan that will block
     // the further execution of main func.
     err = b.Run(config.UpdateTimeout)
     if err != nil {
-        log.Panic.Println("error trying to run bot")
-        panic(err)
+        log.Panic.Println("error trying to run bot:", err)
     }
 }
