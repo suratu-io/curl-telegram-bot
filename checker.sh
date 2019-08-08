@@ -1,0 +1,2 @@
+./lint.sh
+./test.sh
