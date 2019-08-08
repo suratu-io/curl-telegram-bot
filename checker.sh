@@ -1,2 +1,0 @@
-./lint.sh
-./test.sh

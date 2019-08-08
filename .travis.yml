@@ -5,7 +5,7 @@ go: '1.12.x'
 before_install:
   - go get -u golang.org/x/lint/golint
 
-script: ./checker.sh
+script: ./scripts/checker.sh
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
