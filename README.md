@@ -11,13 +11,13 @@
     <a href="https://travis-ci.org/suratu-io/curl-telegram-bot">
         <img
             src="https://img.shields.io/travis/suratu-io/curl-telegram-bot?logo=travis"
-            alt="Curl Telegram Bot Build Status"
+            alt="Curl Telegram Bot Running Status"
         >
     </a>
     <a href="https://github.com/suratu-io/curl-telegram-bot/blob/master/LICENSE">
         <img
             src="https://img.shields.io/github/license/suratu-io/curl-telegram-bot.svg"
-            alt="Curl Telegram Bot Status"
+            alt="Curl Telegram Bot License"
         >
     </a>
     <a href="https://github.com/suratu-io/curl-telegram-bot/releases">
@@ -29,13 +29,13 @@
     <a href="https://github.com/suratu-io/curl-telegram-bot/issues">
         <img
             src="https://img.shields.io/github/issues/suratu-io/curl-telegram-bot.svg"
-            alt="Curl Telegram Bot Status"
+            alt="Curl Telegram Bot Issues"
         >
     </a>
     <a href="https://github.com/suratu-io/curl-telegram-bot/graphs/contributors">
         <img
             src="https://img.shields.io/github/contributors/suratu-io/curl-telegram-bot.svg"
-            alt="Curl Telegram Bot Status"
+            alt="Curl Telegram Bot Contributors"
         >
     </a>
 </p>
