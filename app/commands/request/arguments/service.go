@@ -6,10 +6,10 @@ import (
 	"strings"
 )
 
-func stringAppendHttps(url string) string {
-	newUrl := "https://" + url
-	return newUrl
-}
+const (
+	schemaSeparator = "://"
+	defaultSchema   = "https"
+)
 
 func ParseArguments(args ...string) (*Arguments, error) {
 	if len(args) == 0 {
@@ -17,10 +17,8 @@ func ParseArguments(args ...string) (*Arguments, error) {
 	}
 
 	arguments := NewArguments()
-	rawUrl := args[0]
-	if strings.Contains(rawUrl, "https://") == false {
-		rawUrl = stringAppendHttps(rawUrl)
-	}
+
+	rawUrl := validateRawUrl(args[0])
 	parsedUrl, err := url.Parse(rawUrl)
 	if err != nil {
 		return nil, err
@@ -28,4 +26,12 @@ func ParseArguments(args ...string) (*Arguments, error) {
 	arguments.URL = parsedUrl
 
 	return arguments, nil
+}
+
+func validateRawUrl(url string) string {
+	schemaEnd := strings.Index(url, schemaSeparator)
+	if schemaEnd < 0 {
+		return strings.Join([]string{defaultSchema, url}, schemaSeparator)
+	}
+	return url
 }
