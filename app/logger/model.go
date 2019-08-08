@@ -7,6 +7,7 @@ import (
 )
 
 var (
+    // Factory is the main logger factory.
     Factory = kek.NewFactory(os.Stdout, sugared.Formatter)
 )
 

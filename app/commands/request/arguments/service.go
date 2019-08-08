@@ -11,6 +11,7 @@ const (
     defaultSchema   = "https"
 )
 
+// ParseArguments parses command message arguments to Arguments struct.
 func ParseArguments(args ...string) (*Arguments, error) {
     if len(args) == 0 {
         return nil, errors.New("url not provided")
