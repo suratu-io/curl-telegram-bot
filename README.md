@@ -1,6 +1,8 @@
 <h1 align="center">📃 CURL Telegram Bot</h1>
 <p align="center">Telegram bot for curl requests wherever you want</p>
 
+<h4 align="center">Build Status:</h4>
+
 <p align="center">
     <a href="https://t.me/curl_req_bot">
         <img
@@ -20,6 +22,11 @@
             alt="Curl Telegram Bot Code Coverage"
         >
     </a>
+</p>
+
+<h4 align="center">Repository Status:</h4>
+
+<p align="center">
     <a href="https://github.com/suratu-io/curl-telegram-bot/blob/master/LICENSE">
         <img
             src="https://img.shields.io/github/license/suratu-io/curl-telegram-bot.svg"
