@@ -7,8 +7,8 @@ import (
 )
 
 const (
-    // BotApiTokenEnv is env var key for BotApiToken.
-    BotApiTokenEnv   = "BOT_API_TOKEN"
+    // BotAPITokenEnv is env var key for BotAPIToken.
+    BotAPITokenEnv = "BOT_API_TOKEN"
     // UpdateTimeoutEnv is env var key for UpdateTimeout.
     UpdateTimeoutEnv = "UPDATE_TIMEOUT"
 )
@@ -16,8 +16,8 @@ const (
 var (
     log = logger.Factory.NewLogger("config")
 
-    // BotApiToken is used to connect to bot api.
-    BotApiToken   = os.Getenv(BotApiTokenEnv)
+    // BotAPIToken is used to connect to bot api.
+    BotAPIToken = os.Getenv(BotAPITokenEnv)
     // UpdateTimeout is a duration in seconds for bot api update chan timout.
     UpdateTimeout = 60
 )

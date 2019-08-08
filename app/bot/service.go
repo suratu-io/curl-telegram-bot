@@ -76,8 +76,8 @@ func (b *Bot) formError(err error) string {
     return fmt.Sprintf("Error trying to execute your command: %s", err.Error())
 }
 
-func (b *Bot) sendErrorMessage(chatId int64, err string) {
-    errMsg := tbot.NewMessage(chatId, err)
+func (b *Bot) sendErrorMessage(chatID int64, err string) {
+    errMsg := tbot.NewMessage(chatID, err)
     _, sendError := b.api.Send(errMsg)
     if sendError != nil {
         log.Error.Println("error trying to send an error message:", err)
