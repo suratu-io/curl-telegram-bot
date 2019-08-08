@@ -14,6 +14,12 @@
             alt="Curl Telegram Bot Running Status"
         >
     </a>
+    <a href="https://codecov.io/gh/suratu-io/curl-telegram-bot">
+        <img
+            src="https://codecov.io/gh/suratu-io/curl-telegram-bot/branch/master/graph/badge.svg"
+            alt="Curl Telegram Bot Code Coverage"
+        >
+    </a>
     <a href="https://github.com/suratu-io/curl-telegram-bot/blob/master/LICENSE">
         <img
             src="https://img.shields.io/github/license/suratu-io/curl-telegram-bot.svg"

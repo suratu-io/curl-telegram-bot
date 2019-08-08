@@ -28,7 +28,7 @@ var (
 
 func main() {
     // Creating and setting up a new bot api client.
-    b, err := bot.NewBot(config.BotApiToken, cmds)
+    b, err := bot.NewBot(config.BotAPIToken, cmds)
     if err != nil {
         log.Panic.Println("error trying to initialize a new bot:", err)
     }

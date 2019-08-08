@@ -19,17 +19,17 @@ func ParseArguments(args ...string) (*Arguments, error) {
 
     arguments := NewArguments()
 
-    rawUrl := validateRawUrl(args[0])
-    parsedUrl, err := url.Parse(rawUrl)
+    rawURL := validateRawURL(args[0])
+    parsedURL, err := url.Parse(rawURL)
     if err != nil {
         return nil, err
     }
-    arguments.URL = parsedUrl
+    arguments.URL = parsedURL
 
     return arguments, nil
 }
 
-func validateRawUrl(url string) string {
+func validateRawURL(url string) string {
     schemaEnd := strings.Index(url, schemaSeparator)
     if schemaEnd < 0 {
         return strings.Join([]string{defaultSchema, url}, schemaSeparator)
