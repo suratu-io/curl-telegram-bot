@@ -7,15 +7,15 @@ import (
 )
 
 const (
-    BotApiTokenEnv    = "BOT_API_TOKEN"
-    UpdateTimeoutEnv  = "UPDATE_TIMEOUT"
+    BotApiTokenEnv   = "BOT_API_TOKEN"
+    UpdateTimeoutEnv = "UPDATE_TIMEOUT"
 )
 
 var (
     log = logger.Factory.NewLogger("config")
 
-    BotApiToken    = os.Getenv(BotApiTokenEnv)
-    UpdateTimeout  = 60
+    BotApiToken   = os.Getenv(BotApiTokenEnv)
+    UpdateTimeout = 60
 )
 
 func init() {
