@@ -7,6 +7,7 @@ import (
     "github.com/suratu-io/curl-telegram-bot/app/commands/help"
 )
 
+// Run starts listening to bot api and waits for new messages.
 func (b *Bot) Run(timeout int) error {
     defer log.Note.Println("bot stopped running")
 

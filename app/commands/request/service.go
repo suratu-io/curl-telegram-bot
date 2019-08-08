@@ -9,6 +9,8 @@ import (
     "strings"
 )
 
+// PerformRequest creates and sends a new http request configured by the set
+// of arguments in the message.
 func PerformRequest(method string, bot *tbot.BotAPI, msg tbot.Update) error {
     commandArgs := msg.Message.CommandArguments()
     splitArgs := strings.Split(commandArgs, " ")
