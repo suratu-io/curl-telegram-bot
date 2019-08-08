@@ -5,8 +5,8 @@ import (
 )
 
 type (
-    Name string
-    Callback func(bot *tbot.BotAPI, msg tbot.Update) error
+    Name        string
+    Callback    func(bot *tbot.BotAPI, msg tbot.Update) error
     CallbackMap map[Name]Callback
 )
 
