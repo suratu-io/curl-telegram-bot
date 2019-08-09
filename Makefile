@@ -18,6 +18,7 @@ check:
 bootstrap-hooks:
 	make check-pre-commit-hook
 	cp $(PRE_COMMIT_TEMPLATE_HOOK_PATH) $(PRE_COMMIT_HOOK_PATH)
+	chmod +x $(PRE_COMMIT_HOOK_PATH)
 
 bootstrap:
 	make check-go-mod
