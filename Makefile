@@ -9,7 +9,7 @@ lint:
 	golint -set_exit_status app/...
 
 test:
-	go test -v -race -coverprofile=coverage.txt -covermode=atomic ./app/...
+	go test -race ./app/...
 
 check:
 	make lint
@@ -37,7 +37,7 @@ endif
 
 check-pre-commit-hook:
 ifneq ("$(wildcard $(PRE_COMMIT_HOOK_PATH))", "")
-	echo "Pre-commit hook already exist, reseting"
+	echo "Pre-commit hook already exists, reseting"
 	rm $(PRE_COMMIT_HOOK_PATH)
 else
 	echo "Pre-commit hook is missing"
