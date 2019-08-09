@@ -45,7 +45,7 @@ EOF
 	exit 1
 fi
 
-./scripts/checker.sh
+make check
 
 # If there are whitespace errors, print the offending file names and fail.
 exec git diff-index --check --cached $against --
