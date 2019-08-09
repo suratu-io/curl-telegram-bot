@@ -1,7 +1,9 @@
 <h1 align="center">♥️ Welcome and thanks for contributing</h1>
-<strong align="center">
-    First please read our <a href="https://github.com/suratu-io/curl-telegram-bot/blob/master/CODE_OF_CONDUCT.md">code of conduct</a> to proceed.
-</strong>
+<p align="center">
+    <strong>
+        First please read our <a href="https://github.com/suratu-io/curl-telegram-bot/blob/master/CODE_OF_CONDUCT.md">code of conduct</a> to proceed.
+    </strong>
+</p>
 
 ----
 
@@ -50,10 +52,10 @@ $ make check
 
 ***Note:*** we use [testify](https://github.com/stretchr/testify) toolkit.
 
-Tests written along site the file its testing.
+Tests are written along with site the file it's testing.
 
-For example if your package `request` has a `service.go` in it
-tests would written in `service_test.go` and so on.
+For example, if your package `request` has a `service.go` in it
+tests would be written in `service_test.go` and so on.
 
 
 <h2 id="internals">Internals</h2>
