@@ -22,7 +22,6 @@ bootstrap-hooks:
 
 bootstrap:
 	make check-go-mod
-	go get -u golang.org/x/lint/golint
 	go mod download
 	go mod vendor
 	make check
