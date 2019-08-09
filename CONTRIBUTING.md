@@ -23,6 +23,18 @@
 
 We use go modules, so requirements for this project is `go version >= 1.11.0`.
 
+And don't forget to enable `GO111MODULE`:
+```sh
+$ export GO111MODULE=on
+```
+
+***Note:*** pre-requirements for linting is `golang.org/x/lint/golint`, so first install it:
+```sh
+$ go get -u golang.org/x/lint/golint
+```
+
+And then:
+
 ```sh
 $ git clone https://github.com/suratu-io/curl-telegram-bot
 $ cd curl-telegram-bot
