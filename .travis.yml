@@ -1,8 +1,13 @@
 language: go
+dist: trusty
+sudo: false
 
 go: '1.12.x'
 
-before_install:
+env:
+  - GO111MODULE=on
+
+install:
   - go get -u golang.org/x/lint/golint
 
 script: make bootstrap
